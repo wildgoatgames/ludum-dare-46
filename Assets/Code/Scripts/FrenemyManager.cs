@@ -44,6 +44,10 @@ public class FrenemyManager : MonoBehaviour
             gameplayManager.GameOver();
             Destroy(this.gameObject);
         }
+        else if (collision.gameObject.tag == "Deathwall")
+        {
+            // Do nothing!
+        }
         else
         {
             Debug.Log("Frenemy with something else.");

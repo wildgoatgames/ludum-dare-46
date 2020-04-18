@@ -5,9 +5,10 @@ using UnityEngine;
 public class GameplayManager : MonoBehaviour
 {
     [Header("Script References")]
-    public GameManager gameManager;
     public PlayerManager playerManager;
     public AssetLibrary assetLibrary;
+    public ScoreManager scoreManager;
+    public GameplayUIManager gameplayUIManager;
 
     [Header("Gameplay Bools")]
     public bool gameOverTriggered;
@@ -29,11 +30,6 @@ public class GameplayManager : MonoBehaviour
     public int friendsGenerated;
 
 
-    void Awake()
-    {
-        FindObjectsOnAwake();
-    }
-
     void Start()
     {
         SetFrenemyTimer();
@@ -41,53 +37,53 @@ public class GameplayManager : MonoBehaviour
 
     void Update()
     {
-        FuelCheck();
-    }
-
-    void FuelCheck()
-    {
-        if(fuelRemaining <= 0)
-        {
-            GameOver();
-        }
+        
     }
 
     void SetFrenemyTimer()
     {
-        frenemyTimerValue = Random.Range(frenemyTimerMin, frenemyTimerMax);
-        Debug.Log($"Frenemy timer value set to: {frenemyTimerValue}");
+        if (gameOverTriggered != true)
+        {
+            frenemyTimerValue = Random.Range(frenemyTimerMin, frenemyTimerMax);
+            //Debug.Log($"Frenemy timer value set to: {frenemyTimerValue}");
 
-        InvokeRepeating("FrenemyTimerCountdown",0,0.1f);
+            InvokeRepeating("FrenemyTimerCountdown", 0, 0.1f);
+        }
     }
 
     void FrenemyTimerCountdown()
     {
-        if (frenemyTimerValue > 0)
+        if (gameOverTriggered != true)
         {
-            frenemyTimerValue -= 0.1f;
-            //Debug.Log($"frenemyTimerValue: {frenemyTimerValue}");
-        }
-        else if (frenemyTimerValue <= 0)
-        {
-            InstantiateFrenemy();
-        }
-        else
-        {
-            Debug.Log("Something went wrong with the FrenemyTimerCountDown() function.");
-        }
-        
+            if (frenemyTimerValue > 0)
+            {
+                frenemyTimerValue -= 0.1f;
+                //Debug.Log($"frenemyTimerValue: {frenemyTimerValue}");
+            }
+            else if (frenemyTimerValue <= 0)
+            {
+                InstantiateFrenemy();
+            }
+            else
+            {
+                Debug.Log("Something went wrong with the FrenemyTimerCountDown() function.");
+            }
+        }        
     }
 
     void InstantiateFrenemy()
     {
-        int frenemySelector = FrenemySelectorGenerator();
-        Vector3 frenemyPosition = new Vector3(10,Random.Range(-3.2f,3.2f),0);
+        if (gameOverTriggered != true)
+        {
+            int frenemySelector = FrenemySelectorGenerator();
+            Vector3 frenemyPosition = new Vector3(10, Random.Range(-3.2f, 3.2f), 0);
 
-        Instantiate(assetLibrary.frenemyWords[frenemySelector],frenemyPosition,Quaternion.identity);
-        Debug.Log("Frenemy instantiated!");
+            Instantiate(assetLibrary.frenemyWords[frenemySelector], frenemyPosition, Quaternion.identity);
+            //Debug.Log("Frenemy instantiated!");
 
-        CancelInvoke();
-        SetFrenemyTimer();
+            CancelInvoke();
+            SetFrenemyTimer();
+        }
     }
 
     int FrenemySelectorGenerator()
@@ -140,19 +136,31 @@ public class GameplayManager : MonoBehaviour
         if(gameOverTriggered != true)
         {
             Debug.Log("Game over!");
-            fuelRemaining = 0;
+            scoreManager.CancelInvoke();
+            scoreManager.UpdateHighScore();
+            gameplayUIManager.EnableGameOverScreen();
+            DestroyAllGameObjects();
             gameOverTriggered = true;
         }
         
     }
 
-
-    void FindObjectsOnAwake()
+    void DestroyAllGameObjects()
     {
-        GameObject manager = GameObject.FindGameObjectWithTag("Game Manager");
-        gameManager = manager.GetComponent<GameManager>();
-        assetLibrary = manager.GetComponent<AssetLibrary>();
-    }
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            Destroy(player.gameObject);
+        }
 
+        foreach (GameObject enemyWord in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(enemyWord.gameObject);
+        }
+
+        foreach (GameObject friendlyWord in GameObject.FindGameObjectsWithTag("Friend"))
+        {
+            Destroy(friendlyWord.gameObject);
+        }
+    }
 
 }

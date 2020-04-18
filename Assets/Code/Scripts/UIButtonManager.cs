@@ -11,4 +11,10 @@ public class UIButtonManager : MonoBehaviour
     }
 
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+
 }
