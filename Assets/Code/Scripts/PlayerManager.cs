@@ -34,21 +34,11 @@ public class PlayerManager : MonoBehaviour
         {
             //Debug.Log("Make the ship go up!");
             
-            if(gameplayManager.fuelValue > 0)
+            if(gameplayManager.fuelRemaining > 0)
             {
                 playerRb.AddForce(transform.up * movementSpeed, ForceMode2D.Impulse);
-                gameplayManager.fuelValue -= gameplayManager.fuelCost;
+                gameplayManager.fuelRemaining -= gameplayManager.fuelCost;
             }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Ground")
-        {
-            Debug.Log("Hit the ground!");
-            Destroy(this.gameObject);
-            gameplayManager.GameOver();
         }
     }
 }

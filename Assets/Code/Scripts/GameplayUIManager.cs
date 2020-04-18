@@ -25,6 +25,6 @@ public class GameplayUIManager : MonoBehaviour
 
     void UpdateFuelGauge()
     {
-        fuelGauge.value = gameplayManager.fuelValue;
+        fuelGauge.value = gameplayManager.fuelRemaining;
     }
 }

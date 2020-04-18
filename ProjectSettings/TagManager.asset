@@ -7,6 +7,10 @@ TagManager:
   - Game Manager
   - Ground
   - Ceiling
+  - Enemy
+  - Friend
+  - Deathwall
+  - Gameplay Manager
   layers:
   - Default
   - TransparentFX
