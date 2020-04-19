@@ -1894,6 +1894,7 @@ GameObject:
   - component: {fileID: 1702297706}
   - component: {fileID: 1702297707}
   - component: {fileID: 1702297708}
+  - component: {fileID: 1702297711}
   - component: {fileID: 1702297709}
   - component: {fileID: 1702297710}
   m_Layer: 0
@@ -1993,6 +1994,23 @@ MonoBehaviour:
   frenemyWords:
   - {fileID: 5941838634071366349, guid: 91160b798341b454e8657e61c37ff62f, type: 3}
   - {fileID: 7726441093525283497, guid: 73dbb3b3b0a676b4790118ae444d7056, type: 3}
+  friendlyWords: {fileID: 4900000, guid: 06a8c2f2c399c124dab1d064486d49cb, type: 3}
+  enemyWords: {fileID: 4900000, guid: a797e5b5c859d2744a15df855aea093c, type: 3}
+--- !u!114 &1702297711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702297705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fcf79e2ee2232242a4c680f847f936e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assetLibrary: {fileID: 1702297710}
+  friendlyWordsList: []
+  enemyWordsList: []
 --- !u!1 &1732298812
 GameObject:
   m_ObjectHideFlags: 0
