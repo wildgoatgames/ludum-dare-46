@@ -25,9 +25,9 @@ public class WordManager : MonoBehaviour
         enemyWordsList = assetLibrary.enemyWords.text.Split('\n');
     }
 
-    public string GenerateWord(string[] wordList)
+    public string GenerateWord(string[] wordList, GameObject frenemyObject)
     {
-        string sourceWord = PullSourceWord(wordList, GenerateWordSelector(wordList));
+        string sourceWord = PullSourceWord(wordList, GenerateWordSelector(wordList), frenemyObject);
         string outputWord;
 
         if (wordList == friendlyWordsList)
@@ -50,9 +50,10 @@ public class WordManager : MonoBehaviour
         return wordSelector;
     }
 
-    string PullSourceWord(string[] wordList, int wordSelector)
+    string PullSourceWord(string[] wordList, int wordSelector, GameObject frenemyObject)
     {
         string sourceWord = wordList[wordSelector];
+        frenemyObject.GetComponent<FrenemyManager>().sourceWord = sourceWord;
 
         return sourceWord;
     }

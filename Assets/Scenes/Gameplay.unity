@@ -1935,6 +1935,7 @@ MonoBehaviour:
   scoreManager: {fileID: 1702297708}
   gameplayUIManager: {fileID: 1702297709}
   gameOverTriggered: 0
+  playerParent: {fileID: 936167171}
   fuelGauge: {fileID: 1770810661}
   fuelRemaining: 100
   fuelCost: 0.22
@@ -1994,8 +1995,10 @@ MonoBehaviour:
   frenemyWords:
   - {fileID: 5941838634071366349, guid: 91160b798341b454e8657e61c37ff62f, type: 3}
   - {fileID: 7726441093525283497, guid: 73dbb3b3b0a676b4790118ae444d7056, type: 3}
-  friendlyWords: {fileID: 4900000, guid: 06a8c2f2c399c124dab1d064486d49cb, type: 3}
-  enemyWords: {fileID: 4900000, guid: a797e5b5c859d2744a15df855aea093c, type: 3}
+  correctWord: {fileID: 6569914200848345428, guid: e70d4ec5974511f4998e4e6f89b18dbc,
+    type: 3}
+  friendlyWords: {fileID: 4900000, guid: 589928e26f9f6fd4fb97dfb8710b4774, type: 3}
+  enemyWords: {fileID: 4900000, guid: d5f4bc09c18c8ba46bcd7c33d75d36d1, type: 3}
 --- !u!114 &1702297711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2503,7 +2506,7 @@ GameObject:
   - component: {fileID: 1866540902}
   - component: {fileID: 1866540903}
   m_Layer: 0
-  m_Name: PlayerShip
+  m_Name: PlayerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

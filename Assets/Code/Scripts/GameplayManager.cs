@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameplayManager : MonoBehaviour
     public bool gameOverTriggered;
 
     [Header("Object References")]
+    public GameObject playerParent;
     public GameObject fuelGauge;
 
     [Header("Fuel Variables")]
@@ -129,6 +131,26 @@ public class GameplayManager : MonoBehaviour
         }
 
         return finalValue;
+    }
+
+    void IncreaseFuelValue()
+    {
+        if (fuelRemaining + fuelValue < 100)
+        {
+            fuelRemaining += fuelValue;
+        }
+        else
+        {
+            fuelRemaining = 100;
+        }
+    }
+
+    public void CorrectWord(string correctWordString)
+    {
+        IncreaseFuelValue();
+        GameObject correctWordObject =  Instantiate(assetLibrary.correctWord, playerParent.transform, false);
+        correctWordObject.GetComponent<TextMeshPro>().SetText(correctWordString);
+
     }
 
     public void GameOver()

@@ -31,12 +31,12 @@ public class ScoreManager : MonoBehaviour
         if (PlayerPrefs.HasKey("highScore"))
         {
             highScore = PlayerPrefs.GetInt("highScore");
-            Debug.Log($"highScore exists in PlayerPrefs, updated to: {highScore}");
+            //Debug.Log($"highScore exists in PlayerPrefs, updated to: {highScore}");
         }
         else
         {
             highScore = 0;
-            Debug.Log($"highScore does not exist in PlayerPrefs, reset to: {highScore}");
+            //Debug.Log($"highScore does not exist in PlayerPrefs, reset to: {highScore}");
         }
     }
 
@@ -48,7 +48,7 @@ public class ScoreManager : MonoBehaviour
             PlayerPrefs.SetInt("highScore", highScore);
             PlayerPrefs.Save();
 
-            Debug.Log($"High score beaten! PlayerPrefs highScore is now: {PlayerPrefs.GetInt("highScore")}");
+            //Debug.Log($"High score beaten! PlayerPrefs highScore is now: {PlayerPrefs.GetInt("highScore")}");
         }
 
         

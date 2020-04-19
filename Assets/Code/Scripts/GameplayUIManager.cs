@@ -40,7 +40,7 @@ public class GameplayUIManager : MonoBehaviour
     {
         if(gameplayManager.gameOverTriggered != true)
         {
-            scoreValue.text = scoreManager.currentScore.ToString("#,#");
+            scoreValue.SetText(scoreManager.currentScore.ToString("#,#"));
         }
     }
 
@@ -51,7 +51,7 @@ public class GameplayUIManager : MonoBehaviour
         gameOverScreenCanvasGroup.interactable = true;
 
         // Update scores
-        gameOverScore.text = ($"Score: {scoreManager.currentScore}");
-        gameOverHighScore.text = ($"High Score: {scoreManager.highScore}");
+        gameOverScore.SetText(($"Score: {scoreManager.currentScore}"));
+        gameOverHighScore.SetText(($"High Score: {scoreManager.highScore}"));
     }
 }

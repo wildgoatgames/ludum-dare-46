@@ -14,6 +14,7 @@ public class FrenemyManager : MonoBehaviour
 
     [Header("Frenemy Attributes")]
     public Rigidbody2D frenemyRb;
+    public string sourceWord;
     public TextMeshPro wordText;
     
     // Start is called before the first frame update
@@ -39,7 +40,7 @@ public class FrenemyManager : MonoBehaviour
         if (collision.gameObject.tag == "Player" && isFriend == true)
         {
             //Debug.Log("Collided with friendly word, increase fuel!");
-            IncreaseFuelValue();
+            gameplayManager.CorrectWord(sourceWord);
             Destroy(this.gameObject);
         }
         else if (collision.gameObject.tag == "Player" && isFriend == false)
@@ -58,32 +59,20 @@ public class FrenemyManager : MonoBehaviour
         }
     }
 
-    void IncreaseFuelValue()
-    {
-        if (gameplayManager.fuelRemaining + gameplayManager.fuelValue < 100)
-        {
-            gameplayManager.fuelRemaining += gameplayManager.fuelValue;
-        }
-        else
-        {
-            gameplayManager.fuelRemaining = 100;
-        }
-    }
-
     void UpdateWord()
     {
         string newWord;
 
         if (isFriend == true)
         {
-            newWord = wordManager.GenerateWord(wordManager.friendlyWordsList);
+            newWord = wordManager.GenerateWord(wordManager.friendlyWordsList, this.gameObject);
         }
         else
         {
-            newWord = wordManager.GenerateWord(wordManager.enemyWordsList);
+            newWord = wordManager.GenerateWord(wordManager.enemyWordsList, this.gameObject);
         }
 
-        wordText.text = newWord;
+        wordText.SetText(newWord);
         //Debug.Log($"Word changed to {wordText.text}");
     }
 
