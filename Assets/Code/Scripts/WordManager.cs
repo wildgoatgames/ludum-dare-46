@@ -15,8 +15,8 @@ public class WordManager : MonoBehaviour
     void Start()
     {
         ParseWordLists();
-        Debug.Log($"Friendly word is: {GenerateWord(friendlyWordsList)}");
-        Debug.Log($"Enemy word is: {GenerateWord(enemyWordsList)}");
+        //Debug.Log($"Friendly word is: {GenerateWord(friendlyWordsList)}");
+        //Debug.Log($"Enemy word is: {GenerateWord(enemyWordsList)}");
     }
 
     void ParseWordLists()
@@ -39,7 +39,7 @@ public class WordManager : MonoBehaviour
             outputWord = sourceWord.Replace("ti", "__");
         }
 
-        Debug.Log($"sourceWord was: {sourceWord}. Final output tSwapped is: {outputWord}");
+        //Debug.Log($"sourceWord was: {sourceWord}. Final output is: {outputWord}");
         return outputWord;
     }
 

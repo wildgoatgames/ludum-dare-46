@@ -1937,9 +1937,9 @@ MonoBehaviour:
   gameOverTriggered: 0
   fuelGauge: {fileID: 1770810661}
   fuelRemaining: 100
-  fuelCost: 0.25
+  fuelCost: 0.22
   fuelValue: 15
-  frenemyMovementSpeed: 10
+  frenemyMovementSpeed: 7
   frenemyTimerMin: 0.5
   frenemyTimerMax: 2.5
   frenemyTimerValue: 0

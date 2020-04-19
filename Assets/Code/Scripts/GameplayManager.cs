@@ -66,7 +66,7 @@ public class GameplayManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Something went wrong with the FrenemyTimerCountDown() function.");
+                //Debug.Log("Something went wrong with the FrenemyTimerCountDown() function.");
             }
         }        
     }
@@ -123,7 +123,7 @@ public class GameplayManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Something broke with generating the Frenemy Selector value.");
+                //Debug.Log("Something broke with generating the Frenemy Selector value.");
                 finalValue = 0;
             }
         }
@@ -135,7 +135,7 @@ public class GameplayManager : MonoBehaviour
     {
         if(gameOverTriggered != true)
         {
-            Debug.Log("Game over!");
+            //Debug.Log("Game over!");
             scoreManager.CancelInvoke();
             scoreManager.UpdateHighScore();
             gameplayUIManager.EnableGameOverScreen();

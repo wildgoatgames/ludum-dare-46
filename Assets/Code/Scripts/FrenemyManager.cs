@@ -1,22 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FrenemyManager : MonoBehaviour
 {
     [Header("Script References")]
     public GameplayManager gameplayManager;
+    public WordManager wordManager;
 
     [Header("Gameplay Bools")]
     public bool isFriend;
 
     [Header("Frenemy Attributes")]
     public Rigidbody2D frenemyRb;
+    public TextMeshPro wordText;
     
     // Start is called before the first frame update
     void Start()
     {
-        gameplayManager = GameObject.FindGameObjectWithTag("Gameplay Manager").GetComponent<GameplayManager>();
+        FindObjectReferences();
+        UpdateWord();
     }
 
     // Update is called once per frame
@@ -34,13 +38,13 @@ public class FrenemyManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && isFriend == true)
         {
-            Debug.Log("Collided with friendly word, increase fuel!");
+            //Debug.Log("Collided with friendly word, increase fuel!");
             IncreaseFuelValue();
             Destroy(this.gameObject);
         }
         else if (collision.gameObject.tag == "Player" && isFriend == false)
         {
-            Debug.Log("Collided with enemy word, game over!");
+            //Debug.Log("Collided with enemy word, game over!");
             gameplayManager.GameOver();
             Destroy(this.gameObject);
         }
@@ -50,7 +54,7 @@ public class FrenemyManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Frenemy with something else.");
+            //Debug.Log("Frenemy with something else.");
         }
     }
 
@@ -64,5 +68,29 @@ public class FrenemyManager : MonoBehaviour
         {
             gameplayManager.fuelRemaining = 100;
         }
+    }
+
+    void UpdateWord()
+    {
+        string newWord;
+
+        if (isFriend == true)
+        {
+            newWord = wordManager.GenerateWord(wordManager.friendlyWordsList);
+        }
+        else
+        {
+            newWord = wordManager.GenerateWord(wordManager.enemyWordsList);
+        }
+
+        wordText.text = newWord;
+        //Debug.Log($"Word changed to {wordText.text}");
+    }
+
+    void FindObjectReferences()
+    {
+        GameObject manager = GameObject.FindGameObjectWithTag("Gameplay Manager");
+        gameplayManager = manager.GetComponent<GameplayManager>();
+        wordManager = manager.GetComponent<WordManager>();
     }
 }

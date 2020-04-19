@@ -55,9 +55,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameplayManager: {fileID: 0}
+  wordManager: {fileID: 0}
   isFriend: 0
   frenemyRb: {fileID: 1774444720890837493}
-  movementSpeed: 7
+  wordText: {fileID: 8531209841056771449}
 --- !u!23 &1409685727828538044
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -141,7 +142,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278649045
-  m_fontColor: {r: 0.837, g: 0, b: 0.027673637, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
