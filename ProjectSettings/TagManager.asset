@@ -11,6 +11,7 @@ TagManager:
   - Friend
   - Deathwall
   - Gameplay Manager
+  - Space Generator
   layers:
   - Default
   - TransparentFX
