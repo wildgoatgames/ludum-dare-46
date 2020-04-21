@@ -31,7 +31,7 @@ RectTransform:
   m_GameObject: {fileID: 6569914200848345428}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.83333325, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -602441225741665391, guid: d8c0daa7bb5d03449a013d845e1db77d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -117,13 +117,14 @@ MonoBehaviour:
   m_text: Word
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d8c0daa7bb5d03449a013d845e1db77d, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -602441225741665391, guid: d8c0daa7bb5d03449a013d845e1db77d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 0
+    rgba: 56304
   m_fontColor: {r: 0.9411765, g: 0.85882354, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -183,7 +184,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 4983258576442003545}
-    characterCount: 5
+    characterCount: 4
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
